@@ -1,0 +1,609 @@
+
+@import './variables.scss';
+@import './mixing.scss';
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    background-color: #ccc;
+}
+
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+
+    &:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $nav-back-color;
+    color: white;
+    padding: $space-xs $space-2s;
+
+    .left-items,
+    .right-items {
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+            li {
+                margin-right: $space-2s;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                a {
+                    color: $nav-item-color;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .language-toggle {
+                position: relative;
+                cursor: pointer;
+
+                .language-dropdown {
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: $light-light-black;
+                    width: $space-5xl;
+                    padding: 10px;
+
+                    a {
+                        color: $nav-item-color;
+                        text-decoration: none;
+                        display: block;
+                        padding: $space-3xs;
+
+                        &:hover {
+                            background-color: $light-black;
+                        }
+                    }
+                }
+            }
+            .language-toggle.open {
+                .language-dropdown {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $breack-point-m) {
+    .navigation {
+        display: none;
+        flex-direction: column;
+
+        .left-items,
+        .right-items {
+            ul {
+                flex-direction: column;
+
+                li {
+                    margin-right: 0;
+                    margin-bottom: $space-xs;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .language-toggle.open {
+            .language-dropdown {
+                display: block;
+            }
+        }
+    }
+}
+
+
+// ........................................................  Sub Nav  .............................................................
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #7c94da;
+    color: $nav-back-color;
+    .logo {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        :nth-child(2){
+            margin-left: 1rem;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: $nav-item-color;
+        }
+    }
+     .logo img {
+        padding: 0;
+        width: 10%;
+        border-radius: 50%;
+        height: auto;
+        object-fit: cover;
+    }
+    .navbar-middle {
+        width: 70%;
+        margin-right: 7rem;
+        .search input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+        }
+    }
+    .navbar-right{
+        margin-right: rem;
+    }
+    .navbar-left{
+        display: flex;
+        flex-direction: row;
+        gap: $gap;
+    }
+}
+.toggle-button {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 3px 0;
+    }
+}
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    text-decoration: none;
+    a{
+        text-decoration: none;
+        color: $nav-item-color;
+        font-size: $space-ss;
+        font-size: $space-3s;
+    }
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+
+        .logo img {
+            display: none;
+        }
+    }
+
+    .navbar-left {
+        order: 2;
+        :nth-child(2){
+            display: none;
+        }
+    }
+
+    .navbar-middle {
+        order: 1;
+        margin: 5px;
+        width: 90%;
+    }
+
+    .navbar-right {
+        order: 3;
+    }
+
+    .toggle-button {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        background-color: #a0aed7;
+        padding: 20px;
+        width: 90%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        display: none;
+
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+}
+
+// .....................................................  about  ..............................................
+
+
+.about{
+    background-color: $universal-background_color;
+    padding: $space-4s;
+    display: flex;
+    gap: $space-l;
+    .paragraph{
+        margin-left: 5rem;
+    }
+
+    & .right_side{
+        .uppar{
+            padding-bottom: $space-l;
+        }
+    }
+         @media (max-width: $breack-point-m) {
+            display: flex;
+            flex-direction: column;
+            .left_side{
+                img{
+                    width: 100%;
+                    height: auto;
+                    z-index: 1;
+                }
+            }
+            & .right_side{
+                display: flex;
+                flex-direction: column;
+                img{
+                    width: 100%;
+                    height: auto;
+                    z-index: 1;
+                }
+            }
+            button{
+                margin-left: $space-5xl;
+            }
+        }
+    }
+
+
+    // ................................   testimonial ...................................
+
+.about_testimonial{
+    margin-left: $space-4m;
+    width: 90%;
+    margin-top: $space-ss;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: $space-ss;
+    margin-bottom: $space-5xs;
+    .testimonial{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        a{
+            margin-left: $space-4m;
+            width: 30%;
+            background-color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-family: 'Times New Roman', Times, serif;
+            i{
+                margin-top: $space-2s;
+                margin-left: 2rem;
+            }
+
+            li{
+                list-style: none;
+                font-size: $space-ss;
+                margin-bottom: $space-3s;
+                margin-left: $space-5xl;
+            }
+
+        }
+        @media (max-width: $breack-point-m){
+            display: none;
+        }
+    }
+}
+
+
+// .......................................................   Categories and Featured Product      ...........................................
+
+
+.heading {
+    font-size: $space-m;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-grid {
+    background-color: white;
+    margin-bottom: $space-ss;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: $gap;
+    transition: transform ease-in-out 0.3ms;
+
+    :hover {
+        transform: scale(1.01);
+    }
+
+    @media (max-width: $breack-point-m) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+
+    @mixin service-style {
+        border: 1px solid #ccc;
+        padding: $space-ss;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: $space-xs;
+        }
+
+        p {
+            margin-top: space-xs;
+        }
+
+        button {
+            @extend button
+        }
+    }
+
+    .service {
+        @include service-style;
+    }
+}
+
+
+.Choose-container {
+    background-color: #ccc;
+
+    & .Choose-us {
+        li {
+            font-size: $space-s;
+            font-family: 'Times New Roman';
+            list-style: circle;
+            padding: $space-3xs;
+            flex-direction: row;
+            padding: $space-3xs;
+        }
+    }
+
+    a {
+        button {
+            @extend button
+        }
+    }
+}
+
+
+
+
+
+// .......................................................  feedback  ...........................................
+
+
+.feedback{
+    width: 98%;
+    margin: $space-5xs;
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 1rem;
+    background-color:$feedback-background-color;
+    height: auto;
+    .feedback_item{
+        border: 3px solid rgb(46, 32, 32);
+        display: flex;
+        flex-direction: row;
+        img{
+            padding: $space-ss;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        & .customer_Name{
+            margin: $space-2m;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    @media (max-width: $breack-point-m) {
+        overflow: hidden;
+        width: 100%;
+        background-color: #a18a8a00;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+       .feedback{
+        background-color: #007bff;
+        display: none;
+       }
+    }
+}
+
+
+
+
+
+// .......................................  Footer ............................................
+
+.footer {
+    margin-top: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    padding: 40px $space-ss;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $space-ss;
+
+    @media screen and (max-width: 410px) {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-column {
+        h3 {
+
+            margin-bottom: $space-xs;
+            font-size: $space-ss;
+            color: yellowgreen;
+            :hover{
+                color: red;
+            }
+        }
+
+        p {
+            padding-top: $space-xs;
+            color: $third-nav;
+            font-size: $space-s;
+            padding: $space-s;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                padding-top: $space-xs;
+                padding: 0;
+                margin-bottom: $space-xs;
+
+                a {
+                    color: #fff;
+                    margin: $space-2xs;
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+                :hover{
+                    color: $text-hover-color;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: $space-xs;
+
+            input {
+                padding: $space-2xs;
+                border: 1px solid #fff;
+                border-radius: $space-3xs;
+                margin-bottom: $space-xs;
+                background-color: transparent;
+                color: #fff;
+
+                &::placeholder {
+                    color: #ccc;
+                }
+            }
+
+            button {
+                padding: 8px 16px;
+                background-color: #fff;
+                color: #333;
+                border: none;
+                border-radius: $space-3xs;
+                cursor: pointer;
+
+            }
+        }
+    }
+}
+
+.copy_right{
+    background-color: #6b6565;
+    h3{
+        align-items: center;
+        justify-content: center;
+        color: #3498db;
+        margin-left: 40%;
+        padding: 1rem;
+        font-size: $space-2s;
+    }
+    @media (max-width: $breack-point-m){
+        justify-content: center;
+        align-items: center;
+        font-size: $space-2xs;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+
+// ...............................................................?
+
+
+// Variables
+$sidebar-width: 250px;
+
+.filter-container {
+    width: 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filter-sidebar {
+    width: $sidebar-width;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ccc;
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    .checkbox-container {
+        display: block;
+        margin-bottom: 8px;
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    }
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}

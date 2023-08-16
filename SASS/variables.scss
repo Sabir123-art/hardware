@@ -1,0 +1,94 @@
+//............................ color ........................................
+
+$nav-back-color: #c3b8b8;
+$nav-item-color: #ffff;
+$light-black: #333;
+$light-light-black: #555;
+$sub-navigation-background-color: #f2f2f2;
+$third-nav: #aaa9d1;
+$text-hover-color:#8787ea;
+$universal-background_color:#ccc;
+$image-border-color:green;
+$text-color:#1d0202;
+$feedback-background-color:#dccece;
+$product-page-color:#f8f5f5;
+// ........................  Space .....................................
+
+    $space-5xs: 0.188rem;
+    $space-4xs: 0.25;
+    $space-3xs: 0.313;
+    $space-2xs: 0.5rem;
+    $space-xs: 0.625rem;
+    $space-s: 0.75;
+    $space-ss: 1rem;
+    $space-2s: 1.25rem;
+    $space-3s: 1.5rem;
+    $space-4s: 1.75rem;
+    $space-5s: 2rem;
+    $space-m: 2.25rem;
+    $space-2m: 2.5rem;
+    $space-3m: 2.75rem;
+    $space-4m: 3rem;
+    $space-5m: 3.25rem;
+    $space-l: 3.5rem;
+    $space-2l: 3.75rem;
+    $space-3l: 4rem;
+    $space-4l: 5rem;
+    $space-5l: 5.255rem;
+    $space-xl: 5.75rem;
+    $space-2xl: 6rem;
+    $space-3xl: 6.25rem;
+    $space-4xl: 6.5rem;
+    $space-5xl: 7rem;
+    $gap:1rem;
+
+
+    // ................  Breack-Point  .........................
+
+    $breack-point-m: 768px;
+    $max-width: 1460px;
+    $extra-large-desktop-width: 2500px;
+    $large-desktop-width: 2000px;
+    $desktop-width: 1200px;
+    $tablet-width: 650px;
+    $small-tablet-max-width: 715px;
+    $mobile-width: 414px;
+
+
+
+
+//    .....................................   button   ............................................
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+
+    &:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+
+.heading{
+    background-color: $universal-background_color;
+    margin-left: 1rem;
+    margin-top: 3%;
+    justify-content: center;
+    align-items: center;
+}
+
+.all_page_button {
+    margin-left: 70%;
+}
